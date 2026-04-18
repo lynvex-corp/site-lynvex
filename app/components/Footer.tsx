@@ -1,9 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import CopyrightYear from "./CopyrightYear";
 
 const footerLinks = {
   empresa: [
-    { href: "/#sobre", label: "Sobre nós" },
     { href: "/equipe", label: "Nossa equipe" },
     { href: "/projetos", label: "Cases" },
     { href: "/contato", label: "Contato" },
@@ -16,8 +16,8 @@ const footerLinks = {
   ],
   social: [
     { href: "#", label: "LinkedIn" },
-    { href: "#", label: "Instagram" },
-    { href: "#", label: "GitHub" },
+    { href: "https://www.instagram.com/lynvexcorp/", label: "Instagram" },
+    { href: "https://github.com/lynvex-corp", label: "GitHub" },
   ],
 };
 
@@ -27,25 +27,26 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand column */}
-          <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="relative w-8 h-8">
-                <div className="absolute inset-0 bg-brand rounded-lg opacity-80" />
-                <span className="relative z-10 flex items-center justify-center w-full h-full text-white font-display font-bold text-sm">
-                  L
-                </span>
-              </div>
+          <div className="lg:col-span-1 -my-9">
+            <Link href="/" className="flex items-center gap-2 mb-0 ">
+              <Image
+                src="/logoLynvex.webp"
+                alt="Lynvex logo"
+                width={64}
+                height={64}
+                className="w-24 h-24 object-contain -ml-7 -mr-4"
+              />
               <span className="font-display font-bold text-xl text-light">
-                LYN<span className="text-brand">VEX</span>
+                LYNVEX<span className="text-brand"> TECH</span>
               </span>
             </Link>
             <p className="text-muted text-sm leading-relaxed mb-6">
               Software house especializada em soluções digitais que transformam
               negócios. Do conceito à entrega, com excelência técnica.
             </p>
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1 mb-3">
               <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-              <span className="text-accent text-xs font-medium">
+              <span className="text-accent text-xs font-medium ">
                 Disponível para novos projetos
               </span>
             </div>
@@ -97,15 +98,15 @@ export default function Footer() {
             <ul className="space-y-3 mb-6">
               <li>
                 <a
-                  href="mailto:contato@lynvex.com.br"
+                  href="mailto:lynvexop@gmail.com"
                   className="text-muted hover:text-light text-sm transition-colors"
                 >
-                  contato@lynvex.com.br
+                  lynvexop@gmail.com
                 </a>
               </li>
               <li>
                 <a
-                  href="https://wa.me/5500000000000"
+                  href="https://wa.me/98985598899?text=Olá! Gostaria de conversar sobre um projeto."
                   className="text-muted hover:text-accent text-sm transition-colors"
                 >
                   WhatsApp
@@ -131,8 +132,8 @@ export default function Footer() {
             © <CopyrightYear /> LYNVEX Tech. Todos os direitos reservados.
           </p>
           <p className="text-muted text-xs">
-            Desenvolvido com{" "}
-            <span className="text-brand">♥</span> pela equipe LYNVEX
+            Desenvolvido com <span className="text-brand">♥</span> pela equipe
+            LYNVEX
           </p>
         </div>
       </div>

@@ -3,29 +3,36 @@ import Link from "next/link";
 const teamMembers = [
   {
     name: "Matheus Fernandes",
-    role: "CTO & Front-end Developer",
+    role: "CTO & Frontend Developer",
     skills: ["Next.js", "React", "TypeScript", "Supabase"],
     initial: "M",
     color: "#A800FF",
   },
   {
-    name: "Matheus Henrique",
-    role: "CEO",
-    skills: ["Node.js", "PostgreSQL", "APIs", "n8n"],
+    name: "Matheus Marinho",
+    role: "CEO & Founder",
+    skills: ["Gestão Estratégica", "Branding", "Marketing Digital"],
     initial: "M",
-    color: "#0EA5E9",
+    color: "#00C2FF",
   },
   {
     name: "Caio Mesquita",
-    role: "CEO ",
-    skills: ["React Native", "iOS", "Android", "Expo"],
+    role: "COO & Founder",
+    skills: ["Gestão Operacional", "Marketing", "Criação de Conteúdo"],
     initial: "C",
-    color: "#9BFF00",
+    color: "#22C55E",
   },
   {
-    name: "Natsumi",
-    role: "Front-end Developer",
-    skills: ["Figma", "UI/UX", "Design System", "Prototyping"],
+    name: "Caio Fontes",
+    role: "Backend Developer",
+    skills: ["Node.js", "APIs REST", "IA"],
+    initial: "C",
+    color: "#3B82F6",
+  },
+  {
+    name: "Natsumi Duarte Kudo",
+    role: "Frontend Developer",
+    skills: ["React", "TypeScript", "GitHub"],
     initial: "N",
     color: "#F59E0B",
   },
@@ -69,7 +76,7 @@ export default function TeamSection() {
         </div>
 
         {/* Team grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
           {teamMembers.map((member) => (
             <div
               key={member.name}

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 
 const navLinks = [
@@ -32,16 +33,16 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="relative w-8 h-8">
-              <div className="absolute inset-0 bg-brand rounded-lg opacity-80 group-hover:opacity-100 transition-opacity" />
-              <div className="absolute inset-0 bg-brand rounded-lg blur-sm opacity-40 group-hover:opacity-60 transition-opacity" />
-              <span className="relative z-10 flex items-center justify-center w-full h-full text-white font-display font-bold text-sm">
-                L
-              </span>
-            </div>
+          <Link href="/" className="flex items-center gap-0 group">
+            <Image
+              src="/logoLynvex.webp"
+              alt="Lynvex logo"
+              width={128}
+              height={128}
+              className="w-24 h-24 object-contain -mt-1 -ml-7 -mr-4 shrink-0"
+            />
             <span className="font-display font-bold text-xl text-light tracking-tight">
-              LYN<span className="text-brand">VEX</span>
+              LYNVEX<span className="text-brand"> TECH</span>
             </span>
           </Link>
 

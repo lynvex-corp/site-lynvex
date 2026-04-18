@@ -41,6 +41,18 @@ export const metadata: Metadata = {
     title: "LYNVEX Tech — Soluções Digitais que Impulsionam Negócios",
     description:
       "Software house especializada em sistemas web, aplicativos mobile e automações inteligentes.",
+    images: [
+      {
+        url: "/openGraph.svg",
+        width: 1200,
+        height: 630,
+        alt: "LYNVEX Tech — Soluções Digitais que Impulsionam Negócios",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/openGraph.png"],
   },
 };
 
@@ -50,10 +62,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="pt-BR"
-      className={`${inter.variable} ${spaceGrotesk.variable}`}
-    >
+    <html lang="pt-BR" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <body className="min-h-screen w-full flex flex-col bg-dark text-light antialiased">
         <Navbar />
         <main className="flex-1">{children}</main>

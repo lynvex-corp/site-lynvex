@@ -1,4 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 // In-memory rate limiter: max 3 submissions per IP per 10 minutes.
 // Note: resets on server restart. For multi-instance deployments,
@@ -55,10 +58,21 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // In production: integrate with email service (Resend, SendGrid, etc.)
-    // or Supabase table insert here.
-    // For now, we log and return success.
-    console.log("[Contact Form]", { name, email, phone, service, message, receivedAt: new Date().toISOString() });
+    await resend.emails.send({
+      from: "Formulário LYNVEX <onboarding@resend.dev>",
+      to: "lynvexop@gmail.com",
+      replyTo: email,
+      subject: `Novo contato: ${name}`,
+      text: [
+        `Nome: ${name}`,
+        `E-mail: ${email}`,
+        phone ? `Telefone: ${phone}` : null,
+        service ? `Serviço: ${service}` : null,
+        `\nMensagem:\n${message}`,
+      ]
+        .filter(Boolean)
+        .join("\n"),
+    });
 
     return NextResponse.json(
       { success: true, message: "Mensagem recebida! Entraremos em contato em breve." },

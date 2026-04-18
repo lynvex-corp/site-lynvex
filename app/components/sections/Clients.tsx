@@ -8,7 +8,7 @@ const clients = [
 ];
 
 // Duplicate list for seamless infinite loop
-const allClients = [...clients, ...clients, ...clients];
+const allClients = [...clients, ...clients];
 
 export default function Clients() {
   return (

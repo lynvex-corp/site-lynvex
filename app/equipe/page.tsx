@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -10,57 +11,77 @@ export const metadata: Metadata = {
 const team = [
   {
     name: "Matheus Fernandes",
-    role: "CEO & Full-Stack Developer",
-    bio: "Fundador da LYNVEX com foco em desenvolvimento full-stack e levantamento de requisitos. Apaixonado por transformar problemas complexos em soluções elegantes. Responsável pela arquitetura de sistemas e estratégia técnica dos projetos.",
-    skills: ["Next.js", "React", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS", "Node.js"],
-    initial: "M",
+    role: "CTO & Frontend Developer",
+    bio: "Sócio e CTO da LYNVEX, responsável pela liderança técnica e estruturação dos projetos da empresa. Atua na definição de arquitetura, gestão do time de desenvolvimento e organização dos processos internos, incluindo documentação, versionamento e fluxo de entregas. Também desenvolve interfaces modernas com foco em performance e experiência do usuário, além de facilitar a comunicação entre equipe técnica e gestão.",
+    skills: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Supabase",
+      "PostgreSQL",
+      "Tailwind CSS",
+      "Gestão de Projetos",
+      "Arquitetura de Software",
+    ],
+    photo: "/MatheusFernandes.jpg",
     color: "#A800FF",
+    highlight: "CTO & Sócio",
+  },
+  {
+    name: "Matheus Marinho",
+    role: "CEO & Founder",
+    bio: "CEO e fundador da LYNVEX, responsável pelo posicionamento estratégico da empresa e direcionamento de crescimento. Atua na construção da marca e na criação de campanhas e criativos para redes sociais, fortalecendo a presença digital da empresa.",
+    skills: [
+      "Gestão Estratégica",
+      "Branding",
+      "Marketing Digital",
+      "Social Media",
+      "Posicionamento de Marca",
+    ],
+    photo: "/MatheusHenrique.png",
+    color: "#00C2FF",
     highlight: "CEO & Fundador",
   },
   {
-    name: "Dev Backend",
-    role: "Backend Engineer",
-    bio: "Especialista em arquitetura de APIs, banco de dados e integrações. Responsável por garantir que a infraestrutura dos sistemas seja sólida, segura e escalável. Focado em performance e boas práticas.",
-    skills: ["Node.js", "PostgreSQL", "REST APIs", "Supabase", "Edge Functions", "n8n"],
-    initial: "B",
-    color: "#0EA5E9",
-    highlight: "Especialista em APIs",
+    name: "Caio Mesquita",
+    role: "COO & Founder",
+    bio: "COO e fundador da LYNVEX, responsável pela organização operacional e administrativa da empresa. Atua na execução das estratégias internas e na criação de conteúdos e criativos para redes sociais, contribuindo diretamente para a comunicação e fortalecimento da marca.",
+    skills: [
+      "Gestão Operacional",
+      "Processos Internos",
+      "Marketing",
+      "Social Media",
+      "Criação de Conteúdo",
+    ],
+    photo: "/CaioMesquita.png",
+    color: "#22C55E",
+    highlight: "COO & Fundador",
   },
   {
-    name: "Dev Mobile",
-    role: "Mobile Developer",
-    bio: "Responsável pelo desenvolvimento de aplicativos iOS e Android com React Native. Foco em experiência do usuário mobile-first, performance e publicação nas lojas. Transforma wireframes em experiências nativas.",
-    skills: ["React Native", "Expo", "iOS", "Android", "TypeScript", "Mobile UX"],
-    initial: "M",
-    color: "#9BFF00",
-    highlight: "iOS & Android",
+    name: "Caio Fontes",
+    role: "Backend Developer",
+    bio: "Desenvolvedor back-end com experiência em APIs, chatbots e soluções com inteligência artificial. Atua na construção de sistemas robustos, integrações e aplicações com RAG, garantindo eficiência, escalabilidade e inteligência nos produtos desenvolvidos.",
+    skills: ["Node.js", "APIs REST", "Chatbots", "RAG", "Integrações", "IA"],
+    photo: "/CaioFontes.png",
+    color: "#3B82F6",
+    highlight: "Back-end & IA",
   },
   {
-    name: "UX/UI Designer",
-    role: "Product Designer",
-    bio: "Designer de produto focado em criar interfaces que convertem e experiências que os usuários adoram. Responsável pelo design system da LYNVEX e pela identidade visual de todos os projetos entregues.",
-    skills: ["Figma", "UI/UX", "Design System", "Prototipagem", "Branding", "Motion Design"],
-    initial: "U",
-    color: "#F59E0B",
-    highlight: "Design System",
-  },
-  {
-    name: "Dev Frontend",
+    name: "Natsumi Duarte Kudo",
     role: "Frontend Developer",
-    bio: "Especialista em transformar designs em código pixel-perfect. Trabalha com React e Next.js para criar interfaces rápidas, acessíveis e responsivas. Focado em performance e qualidade de código.",
-    skills: ["React", "Next.js", "Tailwind CSS", "TypeScript", "Acessibilidade", "Performance"],
-    initial: "F",
-    color: "#EC4899",
-    highlight: "Interfaces Pixel-Perfect",
-  },
-  {
-    name: "Especialista em Automações",
-    role: "Automation Engineer",
-    bio: "Responsável por mapear processos e criar automações que economizam horas de trabalho. Especialista em n8n, integrações via API e desenvolvimento de fluxos inteligentes com WhatsApp e outras ferramentas.",
-    skills: ["n8n", "Webhooks", "WhatsApp API", "Integrações", "REST APIs", "Automação"],
-    initial: "A",
-    color: "#6366F1",
-    highlight: "n8n & Automações",
+    bio: "Desenvolvedora front-end com perfil comunicativo e foco em experiência do usuário. Atua tanto na construção de interfaces quanto no relacionamento com clientes, participando do levantamento de requisitos e alinhamento de demandas. Possui conhecimentos em React, linguagens TypeScript e C, GitHub, e busca evoluir continuamente rumo ao desenvolvimento full stack.",
+    skills: [
+      "React",
+      "TypeScript",
+      "GitHub",
+      "HTML",
+      "CSS",
+      "Comunicação com Cliente",
+      "Levantamento de Requisitos",
+    ],
+    photo: "/Natsumi.png",
+    color: "#F59E0B",
+    highlight: "Frontend & Relacionamento",
   },
 ];
 
@@ -130,13 +151,16 @@ export default function EquipePage() {
               <div className="flex items-center gap-4">
                 <div className="relative shrink-0">
                   <div
-                    className="w-16 h-16 rounded-2xl flex items-center justify-center font-display font-bold text-2xl text-white"
-                    style={{
-                      background: `${member.color}20`,
-                      border: `1px solid ${member.color}40`,
-                    }}
+                    className="w-16 h-16 rounded-2xl overflow-hidden"
+                    style={{ border: `1px solid ${member.color}40` }}
                   >
-                    {member.initial}
+                    <Image
+                      src={member.photo}
+                      alt={member.name}
+                      width={64}
+                      height={64}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div
                     className="absolute -bottom-1 -right-1 text-xs font-semibold px-1.5 py-0.5 rounded-md"
@@ -229,17 +253,26 @@ export default function EquipePage() {
             Junte-se à LYNVEX
           </h2>
           <p className="text-muted text-base mb-8">
-            Somos uma equipe em crescimento. Se você é apaixonado por
-            tecnologia e quer fazer parte de projetos desafiadores, queremos
-            conhecer você.
+            Somos uma equipe em crescimento. Se você é apaixonado por tecnologia
+            e quer fazer parte de projetos desafiadores, queremos conhecer você.
           </p>
           <Link
             href="/contato"
             className="inline-flex items-center gap-2 bg-brand hover:bg-brand-light text-white font-semibold px-8 py-4 rounded-xl transition-all duration-200 glow-brand"
           >
             Entrar em contato
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
             </svg>
           </Link>
         </div>
