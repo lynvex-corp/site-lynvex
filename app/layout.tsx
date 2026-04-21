@@ -17,9 +17,10 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://lynvex.com.br"),
   title: {
-    default: "LYNVEX Tech — Soluções Digitais que Impulsionam Negócios",
-    template: "%s | LYNVEX Tech",
+    default: "LYNVEX TECH — Soluções Digitais que Impulsionam Negócios",
+    template: "%s | LYNVEX TECH",
   },
   description:
     "Software house especializada em sistemas web, aplicativos mobile e automações inteligentes. Transformamos ideias em produtos digitais de alto impacto.",
@@ -43,16 +44,12 @@ export const metadata: Metadata = {
       "Software house especializada em sistemas web, aplicativos mobile e automações inteligentes.",
     images: [
       {
-        url: "/openGraph.svg",
+        url: "/openGraph.png",
         width: 1200,
         height: 630,
         alt: "LYNVEX Tech — Soluções Digitais que Impulsionam Negócios",
       },
     ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    images: ["/openGraph.png"],
   },
 };
 

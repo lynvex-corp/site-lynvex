@@ -1,28 +1,34 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import { Ratelimit } from "@upstash/ratelimit";
+import { Redis } from "@upstash/redis";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-// In-memory rate limiter: max 3 submissions per IP per 10 minutes.
-// Note: resets on server restart. For multi-instance deployments,
-// replace with a shared store (e.g. Upstash Redis).
+// Distributed rate limiter via Upstash Redis (required for Vercel multi-instance).
+// Falls back to in-memory when env vars are absent (local dev).
+const ratelimit =
+  process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN
+    ? new Ratelimit({
+        redis: Redis.fromEnv(),
+        limiter: Ratelimit.slidingWindow(3, "10 m"),
+        analytics: false,
+      })
+    : null;
+
+// Fallback in-memory limiter (single-instance only).
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
 const RATE_LIMIT_MAX = 3;
-const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000; // 10 minutes
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 
-function isRateLimited(ip: string): boolean {
+function isMemoryRateLimited(ip: string): boolean {
   const now = Date.now();
   const entry = rateLimitMap.get(ip);
-
   if (!entry || now > entry.resetAt) {
     rateLimitMap.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
     return false;
   }
-
-  if (entry.count >= RATE_LIMIT_MAX) {
-    return true;
-  }
-
+  if (entry.count >= RATE_LIMIT_MAX) return true;
   entry.count++;
   return false;
 }
@@ -31,7 +37,15 @@ export async function POST(request: NextRequest) {
   const ip =
     request.headers.get("x-forwarded-for")?.split(",")[0].trim() ?? "unknown";
 
-  if (isRateLimited(ip)) {
+  if (ratelimit) {
+    const { success } = await ratelimit.limit(ip);
+    if (!success) {
+      return NextResponse.json(
+        { error: "Muitas tentativas. Aguarde alguns minutos e tente novamente." },
+        { status: 429 }
+      );
+    }
+  } else if (isMemoryRateLimited(ip)) {
     return NextResponse.json(
       { error: "Muitas tentativas. Aguarde alguns minutos e tente novamente." },
       { status: 429 }
@@ -42,7 +56,6 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { name, email, phone, service, message } = body;
 
-    // Basic validation
     if (!name || !email || !message) {
       return NextResponse.json(
         { error: "Nome, e-mail e mensagem são obrigatórios." },
@@ -67,7 +80,7 @@ export async function POST(request: NextRequest) {
         `Nome: ${name}`,
         `E-mail: ${email}`,
         phone ? `Telefone: ${phone}` : null,
-        service ? `Serviço: ${service}` : null,
+        service && service !== "Selecione um serviço" ? `Serviço: ${service}` : null,
         `\nMensagem:\n${message}`,
       ]
         .filter(Boolean)

@@ -131,10 +131,18 @@ export default function Footer() {
           <p className="text-muted text-xs">
             © <CopyrightYear /> LYNVEX Tech. Todos os direitos reservados.
           </p>
-          <p className="text-muted text-xs">
-            Desenvolvido com <span className="text-brand">♥</span> pela equipe
-            LYNVEX
-          </p>
+          <div className="flex items-center gap-4">
+            <Link
+              href="/privacidade"
+              className="text-muted hover:text-light text-xs transition-colors"
+            >
+              Política de Privacidade
+            </Link>
+            <p className="text-muted text-xs">
+              Desenvolvido com <span className="text-brand">♥</span> pela equipe
+              LYNVEX
+            </p>
+          </div>
         </div>
       </div>
     </footer>

@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState } from "react";
+import Link from "next/link";
 
 const serviceOptions = [
   "Selecione um serviço",
@@ -42,7 +43,7 @@ export default function ContactForm() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
-  async function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault();
     setStatus("loading");
     setErrorMsg("");
@@ -206,8 +207,11 @@ export default function ContactForm() {
       </button>
 
       <p className="text-muted text-xs text-center">
-        Ao enviar, você concorda com nossa política de privacidade. Seus dados
-        não serão compartilhados com terceiros.
+        Ao enviar, você concorda com nossa{" "}
+        <Link href="/privacidade" className="underline hover:text-light transition-colors">
+          política de privacidade
+        </Link>
+        . Seus dados não serão compartilhados com terceiros.
       </p>
     </form>
   );

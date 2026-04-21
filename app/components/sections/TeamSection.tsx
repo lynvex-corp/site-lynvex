@@ -1,39 +1,45 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const teamMembers = [
   {
     name: "Matheus Fernandes",
     role: "CTO & Frontend Developer",
+    highlight: "CTO & Sócio",
     skills: ["Next.js", "React", "TypeScript", "Supabase"],
-    initial: "M",
+    photo: "/MatheusFernandes.jpg",
     color: "#A800FF",
   },
   {
     name: "Matheus Marinho",
     role: "CEO & Founder",
+    highlight: "CEO & Fundador",
     skills: ["Gestão Estratégica", "Branding", "Marketing Digital"],
-    initial: "M",
+    photo: "/MatheusHenrique.png",
     color: "#00C2FF",
   },
   {
     name: "Caio Mesquita",
     role: "COO & Founder",
-    skills: ["Gestão Operacional", "Marketing", "Criação de Conteúdo"],
-    initial: "C",
+    highlight: "COO & Fundador",
+    skills: ["Gestão Operacional", "Social Media", "Criação de Conteúdo"],
+    photo: "/CaioMesquita.png",
     color: "#22C55E",
   },
   {
     name: "Caio Fontes",
     role: "Backend Developer",
+    highlight: "Back-end & IA",
     skills: ["Node.js", "APIs REST", "IA"],
-    initial: "C",
+    photo: "/CaioFontes.png",
     color: "#3B82F6",
   },
   {
     name: "Natsumi Duarte Kudo",
     role: "Frontend Developer",
+    highlight: "Frontend & Relacionamento",
     skills: ["React", "TypeScript", "GitHub"],
-    initial: "N",
+    photo: "/Natsumi.png",
     color: "#F59E0B",
   },
 ];
@@ -85,13 +91,16 @@ export default function TeamSection() {
               {/* Avatar */}
               <div className="relative">
                 <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center font-display font-bold text-2xl text-white"
-                  style={{
-                    background: `${member.color}30`,
-                    border: `1px solid ${member.color}40`,
-                  }}
+                  className="w-16 h-16 rounded-2xl overflow-hidden"
+                  style={{ border: `1px solid ${member.color}40` }}
                 >
-                  {member.initial}
+                  <Image
+                    src={member.photo}
+                    alt={member.name}
+                    width={64}
+                    height={64}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full border-2 border-dark bg-accent" />
               </div>
