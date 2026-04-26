@@ -17,8 +17,8 @@ const securityHeaders = [
     key: "Content-Security-Policy",
     value: [
       "default-src 'self'",
-      // Next.js injects inline scripts for hydration
-      "script-src 'self' 'unsafe-inline'",
+      // Next.js injects inline scripts for hydration; Turbopack requires unsafe-eval in dev
+      `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""}`,
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com",
       "img-src 'self' data: blob:",

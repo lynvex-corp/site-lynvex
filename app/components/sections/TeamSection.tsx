@@ -4,42 +4,37 @@ import Link from "next/link";
 const teamMembers = [
   {
     name: "Matheus Fernandes",
-    role: "CTO & Frontend Developer",
     highlight: "CTO & Sócio",
     skills: ["Next.js", "React", "TypeScript", "Supabase"],
-    photo: "/MatheusFernandes.jpg",
+    photo: "/team/MatheusFernandes.jpg",
     color: "#A800FF",
   },
   {
     name: "Matheus Marinho",
-    role: "CEO & Founder",
     highlight: "CEO & Fundador",
     skills: ["Gestão Estratégica", "Branding", "Marketing Digital"],
-    photo: "/MatheusHenrique.png",
+    photo: "/team/MatheusHenrique.png",
     color: "#00C2FF",
   },
   {
     name: "Caio Mesquita",
-    role: "COO & Founder",
     highlight: "COO & Fundador",
     skills: ["Gestão Operacional", "Social Media", "Criação de Conteúdo"],
-    photo: "/CaioMesquita.png",
+    photo: "/team/CaioMesquita1.jpeg",
     color: "#22C55E",
   },
   {
     name: "Caio Fontes",
-    role: "Backend Developer",
     highlight: "Back-end & IA",
     skills: ["Node.js", "APIs REST", "IA"],
-    photo: "/CaioFontes.png",
+    photo: "/team/CaioFontes.png",
     color: "#3B82F6",
   },
   {
     name: "Natsumi Duarte Kudo",
-    role: "Frontend Developer",
     highlight: "Frontend & Relacionamento",
     skills: ["React", "TypeScript", "GitHub"],
-    photo: "/Natsumi.png",
+    photo: "/team/Natsumi.png",
     color: "#F59E0B",
   },
 ];
@@ -109,7 +104,7 @@ export default function TeamSection() {
                 <h3 className="font-display font-semibold text-light text-sm">
                   {member.name}
                 </h3>
-                <p className="text-muted text-xs mt-0.5">{member.role}</p>
+                <p className="text-muted text-xs mt-0.5">{member.highlight}</p>
               </div>
 
               <div className="flex flex-wrap gap-1.5 justify-center">

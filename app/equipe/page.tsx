@@ -11,7 +11,6 @@ export const metadata: Metadata = {
 const team = [
   {
     name: "Matheus Fernandes",
-    role: "CTO & Frontend Developer",
     bio: "Sócio e CTO da LYNVEX, responsável pela liderança técnica e estruturação dos projetos da empresa. Atua na definição de arquitetura, gestão do time de desenvolvimento e organização dos processos internos, incluindo documentação, versionamento e fluxo de entregas. Também desenvolve interfaces modernas com foco em performance e experiência do usuário, além de facilitar a comunicação entre equipe técnica e gestão.",
     skills: [
       "Next.js",
@@ -23,13 +22,12 @@ const team = [
       "Gestão de Projetos",
       "Arquitetura de Software",
     ],
-    photo: "/MatheusFernandes.jpg",
+    photo: "/team/MatheusFernandes.jpg",
     color: "#A800FF",
     highlight: "CTO & Sócio",
   },
   {
     name: "Matheus Marinho",
-    role: "CEO & Founder",
     bio: "CEO e fundador da LYNVEX, responsável pelo posicionamento estratégico da empresa e direcionamento de crescimento. Atua na construção da marca e na criação de campanhas e criativos para redes sociais, fortalecendo a presença digital da empresa.",
     skills: [
       "Gestão Estratégica",
@@ -38,13 +36,12 @@ const team = [
       "Social Media",
       "Posicionamento de Marca",
     ],
-    photo: "/MatheusHenrique.png",
+    photo: "/team/MatheusHenrique.png",
     color: "#00C2FF",
     highlight: "CEO & Fundador",
   },
   {
     name: "Caio Mesquita",
-    role: "COO & Founder",
     bio: "COO e fundador da LYNVEX, responsável pela organização operacional e administrativa da empresa. Atua na execução das estratégias internas e na criação de conteúdos e criativos para redes sociais, contribuindo diretamente para a comunicação e fortalecimento da marca.",
     skills: [
       "Gestão Operacional",
@@ -53,22 +50,20 @@ const team = [
       "Social Media",
       "Criação de Conteúdo",
     ],
-    photo: "/CaioMesquita.png",
+    photo: "/team/CaioMesquita1.jpeg",
     color: "#22C55E",
     highlight: "COO & Fundador",
   },
   {
     name: "Caio Fontes",
-    role: "Backend Developer",
     bio: "Desenvolvedor back-end com experiência em APIs, chatbots e soluções com inteligência artificial. Atua na construção de sistemas robustos, integrações e aplicações com RAG, garantindo eficiência, escalabilidade e inteligência nos produtos desenvolvidos.",
     skills: ["Node.js", "APIs REST", "Chatbots", "RAG", "Integrações", "IA"],
-    photo: "/CaioFontes.png",
+    photo: "/team/CaioFontes.png",
     color: "#3B82F6",
     highlight: "Back-end & IA",
   },
   {
     name: "Natsumi Duarte Kudo",
-    role: "Frontend Developer",
     bio: "Desenvolvedora front-end com perfil comunicativo e foco em experiência do usuário. Atua tanto na construção de interfaces quanto no relacionamento com clientes, participando do levantamento de requisitos e alinhamento de demandas. Possui conhecimentos em React, linguagens TypeScript e C, GitHub, e busca evoluir continuamente rumo ao desenvolvimento full stack.",
     skills: [
       "React",
@@ -79,7 +74,7 @@ const team = [
       "Comunicação com Cliente",
       "Levantamento de Requisitos",
     ],
-    photo: "/Natsumi.png",
+    photo: "/team/Natsumi.png",
     color: "#F59E0B",
     highlight: "Frontend & Relacionamento",
   },
@@ -177,7 +172,6 @@ export default function EquipePage() {
                   <h3 className="font-display font-bold text-light text-base leading-tight">
                     {member.name}
                   </h3>
-                  <p className="text-muted text-xs mt-0.5">{member.role}</p>
                   <span
                     className="inline-block text-xs font-medium mt-1.5 px-2 py-0.5 rounded-md"
                     style={{

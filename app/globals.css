@@ -41,7 +41,8 @@ body {
   }
 
   .glow-accent {
-    box-shadow: 0 0 24px color-mix(in srgb, var(--color-accent) 35%, transparent);
+    box-shadow: 0 0 24px
+      color-mix(in srgb, var(--color-accent) 35%, transparent);
   }
 
   .glow-brand-sm {
@@ -49,7 +50,12 @@ body {
   }
 
   .text-gradient {
-    background: linear-gradient(135deg, var(--color-brand) 0%, var(--color-brand-light) 50%, var(--color-light) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--color-brand) 0%,
+      var(--color-brand-light) 50%,
+      var(--color-light) 100%
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -64,8 +70,15 @@ body {
 
   .bg-grid {
     background-image:
-      linear-gradient(color-mix(in srgb, var(--color-brand) 6%, transparent) 1px, transparent 1px),
-      linear-gradient(90deg, color-mix(in srgb, var(--color-brand) 6%, transparent) 1px, transparent 1px);
+      linear-gradient(
+        color-mix(in srgb, var(--color-brand) 6%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--color-brand) 6%, transparent) 1px,
+        transparent 1px
+      );
     background-size: 40px 40px;
   }
 
@@ -96,7 +109,7 @@ body {
   }
 
   .marquee-track {
-    animation: marquee 30s linear infinite;
+    animation: marquee 70s linear infinite;
   }
 }
 

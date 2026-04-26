@@ -1,14 +1,13 @@
+import Image from "next/image";
+
 const clients = [
-  { name: "Gabriel Lemos", segment: "Personal Trainer" },
-  { name: "Danilo Reis", segment: "Comercial / CRM" },
-  { name: "Davi Tavares", segment: "Imobiliária" },
-  { name: "Cliente A", segment: "E-commerce" },
-  { name: "Cliente B", segment: "Saúde & Bem-estar" },
-  { name: "Cliente C", segment: "Educação" },
+  { name: "Odonto Company", logo: "/logos/OdontoCompany.avif" },
+  { name: "AT Real Estate", logo: "/logos/AT-RealEstate.png" },
+  { name: "Auto Escola Mesquita", logo: "/logos/AutoEscolaMesquita.png" },
+  { name: "Resgate Motos", logo: "/logos/ResgateMotos.png" },
 ];
 
-// Duplicate list for seamless infinite loop
-const allClients = [...clients, ...clients];
+const allClients = Array(6).fill(clients).flat() as typeof clients;
 
 export default function Clients() {
   return (
@@ -21,26 +20,19 @@ export default function Clients() {
 
       {/* Marquee track — full-width, no px constraint */}
       <div className="relative">
-        <div
-          className="flex gap-6 marquee-track"
-          style={{ width: "max-content" }}
-        >
+        <div className="flex marquee-track" style={{ width: "max-content" }}>
           {allClients.map((client, i) => (
             <div
               key={i}
-              className="shrink-0 flex items-center gap-3 bg-dark-2 border border-brand/10 rounded-xl px-5 py-3.5"
+              className="shrink-0 flex items-center justify-center bg-dark-2 border border-brand/10 rounded-xl px-4 py-3 mr-6 w-38 h-18"
             >
-              <div className="w-8 h-8 rounded-lg bg-brand/10 border border-brand/20 flex items-center justify-center">
-                <span className="text-brand font-display font-bold text-sm">
-                  {client.name[0]}
-                </span>
-              </div>
-              <div>
-                <p className="text-light text-sm font-semibold font-display whitespace-nowrap">
-                  {client.name}
-                </p>
-                <p className="text-muted text-xs whitespace-nowrap">{client.segment}</p>
-              </div>
+              <Image
+                src={client.logo}
+                alt={client.name}
+                width={120}
+                height={48}
+                className="max-w-full max-h-full object-contain"
+              />
             </div>
           ))}
         </div>

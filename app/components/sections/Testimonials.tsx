@@ -1,30 +1,37 @@
+import Image from "next/image";
+
 const testimonials = [
   {
     name: "Gabriel Lemos",
     role: "Personal Trainer",
     content:
-      "A LYNVEX transformou completamente a forma como gerencio meus alunos. Antes tudo era perdido em planilhas e WhatsApp. Agora tenho uma plataforma profissional que me diferencia no mercado e meus alunos adoram usar.",
+      "A automação com IA transformou nossas operações, eliminando tarefas repetitivas e aumentando a eficiência. Dimensionar nosso fluxo de trabalho nunca foi tão fácil!",
     rating: 5,
-    initial: "G",
-    color: "#4D7C0F",
+    photo: "/clientes/GabrielLemos.png",
   },
   {
-    name: "Danilo Reis",
-    role: "Gestor Comercial",
+    name: "Viviane Medeiros",
+    role: "Corretora de Imóveis",
     content:
-      "O CRM entregue superou as expectativas. A integração com WhatsApp mudou nosso processo comercial do zero — leads entram automaticamente e minha equipe só se preocupa em vender. Resultado: mais conversões, menos trabalho manual.",
+      "Com a IA, reduzimos o trabalho manual e aumentamos a precisão. Nossa equipe agora se concentra em tarefas de alto impacto, enquanto a automação cuida do resto!",
     rating: 5,
-    initial: "D",
-    color: "#A800FF",
+    photo: "/clientes/VivianeMedeiros.png",
+  },
+  {
+    name: "Arthur Rodrigues",
+    role: "Corretor Imobiliário",
+    content:
+      "Os insights baseados em IA dobraram nossa eficiência de vendas. Agora, interagimos com os leads no momento certo, tomando decisões mais inteligentes e fundamentadas em dados!",
+    rating: 5,
+    photo: "/clientes/ArthurRodrigues.png",
   },
   {
     name: "Davi Tavares",
-    role: "Gestor Imobiliário",
+    role: "Corretor Imobiliário",
     content:
-      "Nunca imaginei ter um sistema tão completo para minha imobiliária. Pipeline, imóveis, financeiro, WhatsApp — tudo em um lugar. A LYNVEX entregou dentro do prazo e o suporte pós-entrega é excelente.",
+      "O suporte ao cliente agora é impecável. Nosso tempo de resposta melhorou drasticamente e os níveis de satisfação estão no auge, graças à Lynvex Tech.",
     rating: 5,
-    initial: "D",
-    color: "#0EA5E9",
+    photo: "/clientes/DaviTavares.png",
   },
 ];
 
@@ -64,36 +71,31 @@ export default function Testimonials() {
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {testimonials.map((t) => (
             <div key={t.name} className="card-glass rounded-2xl p-6 flex flex-col gap-5">
-              {/* Quote icon */}
-              <svg
-                className="w-8 h-8 text-brand/30"
-                fill="currentColor"
-                viewBox="0 0 32 32"
-              >
-                <path d="M10 8C6.7 8 4 10.7 4 14v10h10V14H7c0-1.7 1.3-3 3-3V8zm14 0c-3.3 0-6 2.7-6 6v10h10V14h-7c0-1.7 1.3-3 3-3V8z" />
-              </svg>
+              <StarRating count={t.rating} />
 
               <p className="text-light/80 text-sm leading-relaxed flex-1">
                 &ldquo;{t.content}&rdquo;
               </p>
 
               <div className="pt-4 border-t border-brand/10 flex items-center gap-3">
-                <div
-                  className="w-10 h-10 rounded-full flex items-center justify-center font-display font-bold text-white text-sm"
-                  style={{ background: t.color }}
-                >
-                  {t.initial}
+                <div className="w-10 h-10 rounded-full overflow-hidden shrink-0">
+                  <Image
+                    src={t.photo}
+                    alt={t.name}
+                    width={40}
+                    height={40}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <div className="flex-1">
+                <div>
                   <p className="text-light text-sm font-semibold font-display">
                     {t.name}
                   </p>
                   <p className="text-muted text-xs">{t.role}</p>
                 </div>
-                <StarRating count={t.rating} />
               </div>
             </div>
           ))}
