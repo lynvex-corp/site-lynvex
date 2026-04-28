@@ -25,8 +25,8 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-dark/90 backdrop-blur-md border-b border-brand/10"
+        scrolled || isOpen
+          ? "bg-dark/95 backdrop-blur-md border-b border-brand/10"
           : "bg-transparent"
       }`}
     >
@@ -97,8 +97,8 @@ export default function Navbar() {
 
         {/* Mobile menu */}
         <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ${
-            isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          className={`md:hidden overflow-hidden transition-all duration-300 bg-dark ${
+            isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
           }`}
         >
           <div className="pb-4 pt-2 border-t border-brand/10 flex flex-col gap-1">
