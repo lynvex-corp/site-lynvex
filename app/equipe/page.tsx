@@ -24,7 +24,7 @@ const team = [
     ],
     photo: "/team/MatheusFernandes.jpg",
     color: "#A800FF",
-    highlight: "CTO & Sócio",
+    highlight: "CTO & Front-end",
   },
   {
     name: "Matheus Marinho",
@@ -38,7 +38,7 @@ const team = [
     ],
     photo: "/team/MatheusHenrique.png",
     color: "#00C2FF",
-    highlight: "CEO & Fundador",
+    highlight: "CEO",
   },
   {
     name: "Caio Mesquita",
@@ -50,9 +50,9 @@ const team = [
       "Social Media",
       "Criação de Conteúdo",
     ],
-    photo: "/team/CaioMesquita1.jpeg",
+    photo: "/team/CaioMesquita.jpeg",
     color: "#22C55E",
-    highlight: "COO & Fundador",
+    highlight: "COO",
   },
   {
     name: "Caio Fontes",

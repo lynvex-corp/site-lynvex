@@ -20,7 +20,7 @@ const teamMembers = [
     name: "Caio Mesquita",
     highlight: "COO & Fundador",
     skills: ["Gestão Operacional", "Social Media", "Criação de Conteúdo"],
-    photo: "/team/CaioMesquita1.jpeg",
+    photo: "/team/CaioMesquita.jpeg",
     color: "#22C55E",
   },
   {
