@@ -46,8 +46,8 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/:path*",
-        has: [{ type: "host", value: "www.lynvex.com.br" }],
-        destination: "https://lynvex.com.br/:path*",
+        has: [{ type: "host", value: "www.lynvextec.com.br" }],
+        destination: "https://lynvextec.com.br/:path*",
         permanent: true,
       },
     ];

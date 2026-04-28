@@ -17,7 +17,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://lynvex.com.br"),
+  metadataBase: new URL("https://lynvextec.com.br"),
   title: {
     default: "LYNVEX TECH — Soluções Digitais que Impulsionam Negócios",
     template: "%s | LYNVEX TECH",

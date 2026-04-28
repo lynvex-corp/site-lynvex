@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/api/",
     },
-    sitemap: "https://lynvex.com.br/sitemap.xml",
+    sitemap: "https://lynvextec.com.br/sitemap.xml",
   };
 }
