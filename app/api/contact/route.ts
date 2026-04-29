@@ -41,14 +41,16 @@ export async function POST(request: NextRequest) {
     const { success } = await ratelimit.limit(ip);
     if (!success) {
       return NextResponse.json(
-        { error: "Muitas tentativas. Aguarde alguns minutos e tente novamente." },
-        { status: 429 }
+        {
+          error: "Muitas tentativas. Aguarde alguns minutos e tente novamente.",
+        },
+        { status: 429 },
       );
     }
   } else if (isMemoryRateLimited(ip)) {
     return NextResponse.json(
       { error: "Muitas tentativas. Aguarde alguns minutos e tente novamente." },
-      { status: 429 }
+      { status: 429 },
     );
   }
 
@@ -59,20 +61,17 @@ export async function POST(request: NextRequest) {
     if (!name || !email || !message) {
       return NextResponse.json(
         { error: "Nome, e-mail e mensagem são obrigatórios." },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      return NextResponse.json(
-        { error: "E-mail inválido." },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "E-mail inválido." }, { status: 400 });
     }
 
     await resend.emails.send({
-      from: "Formulário LYNVEX <onboarding@resend.dev>",
+      from: "LYNVEX <contato@mail.lynvextec.com.br>",
       to: "lynvexop@gmail.com",
       replyTo: email,
       subject: `Novo contato: ${name}`,
@@ -80,7 +79,9 @@ export async function POST(request: NextRequest) {
         `Nome: ${name}`,
         `E-mail: ${email}`,
         phone ? `Telefone: ${phone}` : null,
-        service && service !== "Selecione um serviço" ? `Serviço: ${service}` : null,
+        service && service !== "Selecione um serviço"
+          ? `Serviço: ${service}`
+          : null,
         `\nMensagem:\n${message}`,
       ]
         .filter(Boolean)
@@ -88,13 +89,16 @@ export async function POST(request: NextRequest) {
     });
 
     return NextResponse.json(
-      { success: true, message: "Mensagem recebida! Entraremos em contato em breve." },
-      { status: 200 }
+      {
+        success: true,
+        message: "Mensagem recebida! Entraremos em contato em breve.",
+      },
+      { status: 200 },
     );
   } catch {
     return NextResponse.json(
       { error: "Erro interno. Tente novamente em alguns instantes." },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
