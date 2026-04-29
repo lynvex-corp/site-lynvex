@@ -71,7 +71,9 @@ export default function Navbar() {
 
             <button
               onClick={() => setIsOpen(!isOpen)}
-              aria-label="Abrir menu"
+              aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
               className="md:hidden p-2 rounded-lg text-muted hover:text-light hover:bg-dark-3 transition-colors"
             >
               <div className="w-5 h-5 flex flex-col justify-center gap-1.5">
@@ -97,6 +99,7 @@ export default function Navbar() {
 
         {/* Mobile menu */}
         <div
+          id="mobile-menu"
           className={`md:hidden overflow-hidden transition-all duration-300 bg-dark ${
             isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
           }`}

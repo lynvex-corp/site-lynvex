@@ -55,7 +55,7 @@ const sections = [
   {
     title: "10. Contato",
     content:
-      "Dúvidas, solicitações ou reclamações relacionadas à privacidade podem ser enviadas para: lynvexop@gmail.com. Respondemos em até 5 dias úteis.",
+      "Dúvidas, solicitações ou reclamações relacionadas à privacidade podem ser enviadas para: contato@lynvextec.com.br. Respondemos em até 5 dias úteis.",
   },
 ];
 

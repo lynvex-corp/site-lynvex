@@ -25,8 +25,8 @@ const contactInfo = [
       </svg>
     ),
     label: "E-mail",
-    value: "lynvexop@gmail.com",
-    href: "mailto:lynvexop@gmail.com",
+    value: "contato@lynvextec.com.br",
+    href: "mailto:contato@lynvextec.com.br",
   },
   {
     icon: (

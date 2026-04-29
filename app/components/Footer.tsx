@@ -98,10 +98,10 @@ export default function Footer() {
             <ul className="space-y-3 mb-6">
               <li>
                 <a
-                  href="mailto:lynvexop@gmail.com"
+                  href="mailto:contato@lynvextec.com.br"
                   className="text-muted hover:text-light text-sm transition-colors"
                 >
-                  lynvexop@gmail.com
+                  contato@lynvextec.com.br
                 </a>
               </li>
               <li>
