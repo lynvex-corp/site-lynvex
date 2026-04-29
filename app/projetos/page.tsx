@@ -160,6 +160,7 @@ export default function ProjetosPage() {
           {projects.map((project) => (
             <article
               key={project.id}
+              id={project.id}
               className="card-glass rounded-3xl overflow-hidden"
             >
               {/* Project header */}

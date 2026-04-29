@@ -2,6 +2,7 @@ import Link from "next/link";
 
 const projects = [
   {
+    id: "gl-personal",
     tag: "Aplicativo Web",
     name: "GL Personal",
     client: "Gabriel Lemos",
@@ -13,6 +14,7 @@ const projects = [
     metrics: ["2 perfis de acesso", "Chat em tempo real", "Mobile-first"],
   },
   {
+    id: "crm-comercial",
     tag: "CRM Comercial",
     name: "CRM Comercial",
     client: "Danilo Reis",
@@ -24,6 +26,7 @@ const projects = [
     metrics: ["Pipeline Kanban", "WhatsApp integrado", "Multi-vendedor"],
   },
   {
+    id: "crm-imobiliario",
     tag: "CRM Imobiliário",
     name: "ImóvelCRM",
     client: "Davi Tavares",
@@ -73,8 +76,9 @@ export default function Portfolio() {
         {/* Projects grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
-            <div
+            <Link
               key={project.name}
+              href={`/projetos#${project.id}`}
               className="group card-glass card-glass-hover rounded-2xl overflow-hidden flex flex-col"
             >
               {/* Preview area */}
@@ -147,7 +151,7 @@ export default function Portfolio() {
                   ))}
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 

@@ -5,7 +5,7 @@ const testimonials = [
     name: "Gabriel Lemos",
     role: "Personal Trainer",
     content:
-      "A automação com IA transformou nossas operações, eliminando tarefas repetitivas e aumentando a eficiência. Dimensionar nosso fluxo de trabalho nunca foi tão fácil!",
+      "A automação com IA transformou minha rotina como personal trainer. Consigo gerenciar mais alunos com muito menos esforço, organizar meu fluxo de trabalho nunca foi tão simples!",
     rating: 5,
     photo: "/clientes/GabrielLemos.png",
   },
@@ -18,18 +18,18 @@ const testimonials = [
     photo: "/clientes/VivianeMedeiros.png",
   },
   {
-    name: "Arthur Rodrigues",
+    name: "Artur Rodrigues",
     role: "Corretor Imobiliário",
     content:
-      "Os insights baseados em IA dobraram nossa eficiência de vendas. Agora, interagimos com os leads no momento certo, tomando decisões mais inteligentes e fundamentadas em dados!",
+      "Os insights baseados em IA dobraram minha eficiência de vendas. Agora consigo abordar cada lead no momento certo e tomar decisões muito mais inteligentes e fundamentadas em dados!",
     rating: 5,
-    photo: "/clientes/ArthurRodrigues.png",
+    photo: "/clientes/ArturRodrigues.png",
   },
   {
     name: "Davi Tavares",
     role: "Corretor Imobiliário",
     content:
-      "O suporte ao cliente agora é impecável. Nosso tempo de resposta melhorou drasticamente e os níveis de satisfação estão no auge, graças à Lynvex Tech.",
+      "Meu atendimento ao cliente ficou impecável. Meu tempo de resposta melhorou drasticamente e meus clientes estão muito mais satisfeitos, graças à Lynvex Tech.",
     rating: 5,
     photo: "/clientes/DaviTavares.png",
   },
@@ -39,7 +39,12 @@ function StarRating({ count }: { count: number }) {
   return (
     <div className="flex gap-0.5">
       {Array.from({ length: count }).map((_, i) => (
-        <svg key={i} className="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20">
+        <svg
+          key={i}
+          className="w-4 h-4 text-accent"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
         </svg>
       ))}
@@ -65,15 +70,17 @@ export default function Testimonials() {
             Depoimentos
           </div>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-light max-w-2xl mx-auto">
-            O que nossos{" "}
-            <span className="text-gradient">clientes dizem</span>
+            O que nossos <span className="text-gradient">clientes dizem</span>
           </h2>
         </div>
 
         {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {testimonials.map((t) => (
-            <div key={t.name} className="card-glass rounded-2xl p-6 flex flex-col gap-5">
+            <div
+              key={t.name}
+              className="card-glass rounded-2xl p-6 flex flex-col gap-5"
+            >
               <StarRating count={t.rating} />
 
               <p className="text-light/80 text-sm leading-relaxed flex-1">
